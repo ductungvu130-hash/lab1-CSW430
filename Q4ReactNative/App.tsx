@@ -1,15 +1,30 @@
-import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
-import data from './Data';
-import Square from './Square';
-import styles from "./style";
+import React from 'react';
+import { SafeAreaView, ScrollView, StyleSheet, Text } from 'react-native';
+import Employee from './components/Employee';
+import SumDigits from './components/SumDigits';
+import FindMin from './components/FindMin';
+import Hailstone from './components/Hailstone';
 
 export default function App() {
   return (
-    <ScrollView style={styles.container}>
-      {data.map((item, index) => (
-        <Square key={item} text={`Square ${index + 1}`} />
-      ))}
-    </ScrollView>
+    <SafeAreaView style={styles.container}>
+      <ScrollView contentContainerStyle={styles.scroll}>
+        <Text style={styles.header}>LAB 1 - QUESTION 6</Text>
+        
+        <Employee fullName="Nguyen Van A" age={20} occupation="Sinh viên CNTT" />
+        
+       
+        <SumDigits />
+        <FindMin />
+        <Hailstone />
+        
+      </ScrollView>
+    </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#fff' },
+  scroll: { padding: 20 },
+  header: { fontSize: 22, fontWeight: 'bold', textAlign: 'center', marginBottom: 20 }
+});
